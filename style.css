@@ -42,11 +42,17 @@ link {
 .container {
     margin: 20px;
     margin-top: 50px;
+    align-items: center;
 }
 .content-50 {
     width: 50%;
     float: left;
     margin: 0;
+}
+
+.content-50 img {
+    height: auto;
+    float:right
 }
 
 .menu a {
