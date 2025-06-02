@@ -2,8 +2,8 @@ body {
     background-color: #eca2a2;
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
     color: #333;
+    
 }
 
 h1 {
@@ -22,7 +22,7 @@ link {
     }
 }
 
-/*divit*/
+/*classit*/
 .linkki-lista {
     display: flex;
     flex-direction: column;
@@ -30,14 +30,25 @@ link {
 }
 
 .menu {
-    display: inline;
-    align-items: flex-end;
+
     margin-bottom: 20px;
     background-color: #333;
     width: 100%;
     padding: 10px;
     color: #d10a6d;
+    position: fixed;
+    top: 0;
 }
+.container {
+    margin: 20px;
+    margin-top: 50px;
+}
+.content-50 {
+    width: 50%;
+    float: left;
+    margin: 0;
+}
+
 .menu a {
     color: #d10a6d;
     text-decoration: none;
@@ -57,4 +68,23 @@ ul {
 li {
     margin: 10px 0;
     font-weight: bold;
+}
+
+.content-50 ul {
+    width: 100%;
+    padding-left: 20px;
+}
+.content-50 li {
+    font-weight: normal;
+}
+
+/*footer*/
+footer {
+    background-color: aqua;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    min-height: 30px;
+    width: 100%;
+    bottom: 0;
 }
