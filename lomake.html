@@ -16,19 +16,22 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
-        <title>Wannabe panukakkuresepti</title>
+        <title>Lomake</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
-    <body>
+    <body  style="background-image: url('/salat/bg.png'); background-repeat: no-repeat; background-size: cover; background-position: center; background-attachment: fixed;">
         <header>
-            <!-- place navbar here -->
+            <div class="menu">
+                <a href="index.html">index</a>
+            </div>
         </header>
-        <main>
-
-            <div class="container">
+        <main >
+            <div class="spacer"> </div>
+            <div class="container" >
+                
                 <h1>Lomake</h1>
-                <div class="content-50">
+                <div class="content-center">
                     <form>
                         <div class="mb-3">
                             <label for="name" class="form-label">Nimi:</label>
@@ -57,8 +60,26 @@
                                 id="message"
                                 name="message"
                                 rows="4"
-                                required
+                                
                             ></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="valitse" class="form-label">Valitse tehtävän kiinnostavuus:</label>
+                            <select class="form-select" id="valitse" name="valitse" required>
+                                <option value="" disabled selected>Valitse vaihtoehto</option>
+                                <option value="vaihtoehto1">Erinomainen</option>
+                                <option value="vaihtoehto2">meh</option>
+                                <option value="vaihtoehto3">Onko pakko?</option>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input
+                                type="checkbox"
+                                class="form-check-input"
+                                id="subscribe"
+                                name="subscribe"
+                            />
+                            <label class="form-check"> Tilaa uutiskirje </label>
+                            
                         </div>
                         <button type="submit" class="btn btn-primary">Lähetä</button>
                     </form>
