@@ -66,7 +66,7 @@ if __name__ == "__main__":
     # Test the function with example inputs
     #luokat = (0, 1)
     lkm = 5
- #   print(choose_exe((0, 1), 3))  
+    #   print(choose_exe((0, 1), 3))  
     #choose_exe((0, 1), 1) #Kutsutaan siis vain choose_exe(luokat, lkm) 
     choose_exe((4, 1, 2), 10) 
 

@@ -16,7 +16,25 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
-        <title>Rally lottery</title>
+        <!--pyscripti linkit-->
+         <!-- Recommended meta tags -->
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width,initial-scale=1.0">
+ 
+         <!-- PyScript CSS -->
+         <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+         <!-- CSS for examples -->
+         <link rel="stylesheet" href="./assets/css/examples.css" />
+ 
+         <!-- This script tag bootstraps PyScript -->
+         <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+         <py-config>
+            {
+                "packages": [],
+                "paths": ["./", "./salat/"] <!-- Ensure PyScript can find your Python file -->
+            }
+        </py-config>
+            <title>Rally lottery</title>
         <link rel="stylesheet" href="style2.css">
     </head>
 
@@ -78,28 +96,49 @@
            
                 <div class="inner_box"> 
                     <p>Valinnat:</p>
-                    <div id="results"></div>
+                    <div id="results">
+                     
+                        <script>
+                            document.getElementById('submitBtn').addEventListener('click', function () {
+                                const form = document.getElementById('rallyForm');
+                                const formData = new FormData(form);
+                                const resultsDiv = document.getElementById('results');
+                        
+                                // Clear previous results
+                                resultsDiv.innerHTML = '';
+                        
+                                // Get selected checkboxes
+                                const selectedLuokat = formData.getAll('luokka');
+                                const pituus = formData.get('pituus');
+                        
+                                // Display results
+                                resultsDiv.innerHTML += `<p><strong>Valitut luokat:</strong> ${selectedLuokat.join(', ')}</p>`;
+                                resultsDiv.innerHTML += `<p><strong>Tehtävien määrä:</strong> ${pituus}</p>`;
+                            });
+                        </script>
+                    
+                        
+                    </div>
                 </div>
           </div> 
             
-            <script>
-                document.getElementById('submitBtn').addEventListener('click', function () {
-                    const form = document.getElementById('rallyForm');
-                    const formData = new FormData(form);
-                    const resultsDiv = document.getElementById('results');
+          <!-- oikea reuna-->
+           <div class="content-50">
+            <div class="inner_box">
+                <h2>Tähän tulee pythonin arpoma lista</h2>
+                <script type="py">
+                    from pyscript import display
+                    import random
+                    
+                    display("moi")
+                
+                    #display(choose_exercise.choose_exe((4, 1, 2), 10))
+                    
+                </script>
+                </script>
+            </div>
+           </div>
             
-                    // Clear previous results
-                    resultsDiv.innerHTML = '';
-            
-                    // Get selected checkboxes
-                    const selectedLuokat = formData.getAll('luokka');
-                    const pituus = formData.get('pituus');
-            
-                    // Display results
-                    resultsDiv.innerHTML += `<p><strong>Valitut luokat:</strong> ${selectedLuokat.join(', ')}</p>`;
-                    resultsDiv.innerHTML += `<p><strong>Tehtävien määrä:</strong> ${pituus}</p>`;
-                });
-            </script>
 
              <!-- Bootstrap JavaScript Libraries -->
         <script
@@ -114,5 +153,17 @@
         crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <div>
+        Hello world! <br />
+        This is the current date and time, as computed by Python:
+        <script type="py">
+            from pyscript import display
+            from datetime import datetime
+            now = datetime.now()
+            display(now.strftime("%m/%d/%Y, %H:%M:%S"))
+        </script>
+    </div>
 </body>
 </html>
