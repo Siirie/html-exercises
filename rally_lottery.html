@@ -27,52 +27,79 @@
             </div>
         </header>
         <main >
-<div class="content-50">
-    <div class="inner_box">
-        <h1>Welcome to the Rally Lottery</h1>
-        <form>
-            <div class="form-group">
-                <label for="luokka" class="space_above">valitse luokat</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="luokka" value="1">
-                <label class="form-check-label" for="luokka">ALO</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="luokka" value="2">
-                <label class="form-check-label" for="luokka">AVO</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="luokka" value="3">
-                <label class="form-check-label" for="luokka">VOI</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="luokka" value="4">
-                <label class="form-check-label" for="luokka">MES</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="luokka" value="0" checked>
-                <label class="form-check-label" for="luokka">lähtö ja maali</label>
-              </div>
-              <div class="form-group">
-                <label for="pituus" class="space_above">tehtävien määrä</label>
-                <span id="pituus-value" class="pink_txt">0</span>
-            </div>
-            <input 
-                type="range" 
-                class="form-range" 
-                id="pituus" 
-                min="1" 
-                max="40"
-                oninput="document.getElementById('pituus-value').textContent = event.target.value">
-
-
-        </form>
-        
-        
-    </div>
-</div> 
-
+            <div class="content-50"> <!--lomake*/--> 
+                <div class="inner_box">
+                    <h1>Welcome to the Rally Lottery</h1>
+                    <form id="rallyForm">
+                        <div class="form-group">
+                            <label for="luokka" class="space_above">valitse luokat</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="luokka1" name="luokka" value="ALO">
+                            <label class="form-check-label" for="luokka1">ALO</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="luokka2" name="luokka" value="AVO">
+                            <label class="form-check-label" for="luokka2">AVO</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="luokka3" name="luokka" value="VOI">
+                            <label class="form-check-label" for="luokka3">VOI</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="luokka4" name="luokka" value="MES">
+                            <label class="form-check-label" for="luokka4">MES</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="luokka0" name="luokka" value="lähtö ja maali" checked>
+                            <label class="form-check-label" for="luokka0">lähtö ja maali</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="pituus" class="space_above">tehtävien määrä</label>
+                            <span id="pituus-value" class="pink_txt">21</span>
+                        </div>
+                        <input 
+                            type="range" 
+                            class="form-range" 
+                            id="pituus" 
+                            name="pituus"
+                            min="1" 
+                            max="40"
+                            oninput="document.getElementById('pituus-value').textContent = event.target.value"
+                            required>
+            
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-danger" type="button" id="submitBtn">GO!</button>
+                        </div>
+                    </form>
+                </div>
+            
+            
+           
+                <div class="inner_box"> 
+                    <p>Valinnat:</p>
+                    <div id="results"></div>
+                </div>
+          </div> 
+            
+            <script>
+                document.getElementById('submitBtn').addEventListener('click', function () {
+                    const form = document.getElementById('rallyForm');
+                    const formData = new FormData(form);
+                    const resultsDiv = document.getElementById('results');
+            
+                    // Clear previous results
+                    resultsDiv.innerHTML = '';
+            
+                    // Get selected checkboxes
+                    const selectedLuokat = formData.getAll('luokka');
+                    const pituus = formData.get('pituus');
+            
+                    // Display results
+                    resultsDiv.innerHTML += `<p><strong>Valitut luokat:</strong> ${selectedLuokat.join(', ')}</p>`;
+                    resultsDiv.innerHTML += `<p><strong>Tehtävien määrä:</strong> ${pituus}</p>`;
+                });
+            </script>
 
              <!-- Bootstrap JavaScript Libraries -->
         <script
