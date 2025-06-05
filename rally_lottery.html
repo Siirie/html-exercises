@@ -30,11 +30,48 @@
 <div class="content-50">
     <div class="inner_box">
         <h1>Welcome to the Rally Lottery</h1>
-        <form action="https://example.com/submit" method="post">
-        <div class="mb-3">
-        <label for="name" class="form-label">Name:</label>
+        <form>
+            <div class="form-group">
+                <label for="luokka" class="space_above">valitse luokat</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="luokka" value="1">
+                <label class="form-check-label" for="luokka">ALO</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="luokka" value="2">
+                <label class="form-check-label" for="luokka">AVO</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="luokka" value="3">
+                <label class="form-check-label" for="luokka">VOI</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="luokka" value="4">
+                <label class="form-check-label" for="luokka">MES</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="luokka" value="0" checked>
+                <label class="form-check-label" for="luokka">lähtö ja maali</label>
+              </div>
+              <div class="form-group">
+                <label for="pituus" class="space_above">tehtävien määrä</label>
+                <span id="pituus-value" class="pink_txt">0</span>
+            </div>
+            <input 
+                type="range" 
+                class="form-range" 
+                id="pituus" 
+                min="1" 
+                max="40"
+                oninput="document.getElementById('pituus-value').textContent = event.target.value">
+
+
+        </form>
+        
+        
     </div>
-</div>
+</div> 
 
 
              <!-- Bootstrap JavaScript Libraries -->
@@ -49,5 +86,6 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>
