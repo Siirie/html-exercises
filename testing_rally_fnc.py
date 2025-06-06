@@ -1,4 +1,46 @@
-[1, 'Tehtävän numero', 'Nimi', 'Suorituspaikka', 'Suoritusohje'
+from random import sample
+#from pyweb import pydom
+
+def get_pool(luokat: tuple):
+    #luokat numero vastaa rally_kyltit_kopio.txt tiedoston jokaisen rivin alussa olevia numeroita
+    pool = []
+    
+    try:
+        for luokka in range(luokat):
+            if luokka == 0:
+                pool.extend(range(2, 4))  # 2-3
+            elif luokka == 1:
+                pool.extend(range(4, 40))  # 4-39
+            elif luokka == 2:
+                pool.extend(range(40, 65))  # 40-64
+            elif luokka == 3:
+                pool.extend(range(65, 91))  # 65-90
+            elif luokka == 4:
+                pool.extend(range(91, 113))  # 91-112
+    except:
+        for luokka in luokat:
+            if luokka == 0:
+                pool.extend(range(2, 4))  # 2-3
+            elif luokka == 1:
+                pool.extend(range(4, 40))  # 4-39
+            elif luokka == 2:
+                pool.extend(range(40, 65))  # 40-64
+            elif luokka == 3:
+                pool.extend(range(65, 91))  # 65-90
+            elif luokka == 4:
+                pool.extend(range(91, 113))  # 91-112
+    else:
+        print("erroria pukkaa")
+
+    
+    return pool
+
+def choose_exe(event): #tulostaa tuloksen (nro, nimi)
+    luokat = (1, 2)
+    lkm= 3
+    pool= get_pool(luokat)
+    all_exes = [
+        [1, 'Tehtävän numero', 'Nimi', 'Suorituspaikka', 'Suoritusohje'
 ],[2, 'LÄHTÖ', 'LÄHTÖ', ' (A)', 'Koira seuraa ohjaajaa lähtökyltille. Ohjaajan pysähtyessä koira istuu ohjaajan viereen. Koirakko lähtee suorittamaan rataa.'
 ],[3, 'MAALI', 'MAALI', ' (A)', 'Tarvittaessa koirakko siirtyy normaalikäyntiin. Rata päättyy, kun koirakko ohittaa kyltin. Koirakko poistuu kilpailukehästä normaalikäyntiä.'
 ],[4, '101', 'MAAHAN', ' (A)', 'Ohjaajan pysähtyessä koira menee maahan ohjaajan viereen. Koira pysyy maassa, kunnes koirakko lähtee liikkeelle.'
@@ -111,3 +153,37 @@
 ],[111, '421', 'TÄYSKÄÄNNÖS, KUTSU ESTEEN YLI', ' (B)', 'Tätä kylttiä voi käyttää vain kylttien 319, 408 ja 409 jälkeen. Ohjaaja tekee täyskäännöksen, pysähtyy ja kutsuu koiraa. Ohjaaja saa pysähtyä ennen täyskäännöstä. Ohjaaja kutsuu koiran esteen yli vasemmalle puolelleen ilman istumista. Seuraaminen jatkuu vasemmalla.'
 ],[112, '422', 'TÄYSKÄÄNNÖS, PERUUTA, ISTU, MAAHAN, KUTSU, ISTU', ' (B)', 'Tätä kylttiä voi käyttää vain kylttien 319, 408 ja 409 jälkeen. Ohjaaja tekee täyskäännöksen ja pysähtyy. Ohjaaja saa pysähtyä ennen täyskäännöstä. Koira peruuttaa vähintään yhden rungonmittansa ja istuu, josta menee maahan. Ohjaaja kutsuu koiran vasemmalle puolelleen istumaan. Seuraaminen jatkuu vasemmalla.'
 ],
+    ]
+    possibilities =[]
+    
+    """
+    #luokat numero vastaa rally_kyltit_kopio.txt tiedoston jokaisen rivin alussa olevia numeroita
+    with open('salat\rally_kyltit_kopio.txt', 'r', encoding='utf-8') as kyltitfile:
+    """
+    for row in all_exes:
+        parts= row #parts[0] on järjestysnumero
+        
+        #print(parts[0], parts[1], parts[2], parts[3], parts[4])
+        #seuravaksi pistäisi lisätä rivit, jotka alkavat tietyillä nmeroilla possibilities listaan
+        if int(parts[0]) in pool:
+            possibilities.append(row)
+            
+    
+    
+    choosen_exes=[]
+    
+    if len(possibilities) >= lkm:
+        choosen_exes= sample(possibilities, lkm)
+    else:
+        choosen_exes=possibilities
+
+
+    for exes in choosen_exes:
+        print(exes[1], exes[2])
+
+if __name__ == "__main__":
+    # Test the function with example inputs
+    #luokat = (0, 1)
+    #   print(choose_exe((0, 1), 3))  
+    #choose_exe((0, 1), 1) #Kutsutaan siis vain choose_exe(luokat, lkm) 
+    choose_exe(None)  # None is a placeholder for the event parameter
