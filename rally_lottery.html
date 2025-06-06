@@ -120,7 +120,7 @@
            <div class="content-50">
             <div class="inner_box">
                 <h2>Tähän tulee pythonin arpoma lista</h2>
-                <script type="py" src="./choose_exercise.py" config="./src/pyscript.toml">
+                <!--script type="py" src="./choose_exercise.py" config="./src/pyscript.toml">
                     from pyscript import display
                     from pyodide.http import pyfetch
                  
@@ -135,7 +135,7 @@
                             display(r)
                  
                     await choose()
-                </script>
+                </script-->
             </div>
            </div>
             
@@ -155,7 +155,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
-    <div>
+    <!--div>
         Hello world! <br />
         This is the current date and time, as computed by Python:
         <script type="py">
@@ -163,12 +163,20 @@
             from datetime import datetime
             now = datetime.now()
             display(now.strftime("%m/%d/%Y, %H:%M:%S"))
-        </script>
+        </script> </div-->
         <div>
-            <button id="get_joke" py-click="get_joke">Get a new PyJoke</button>
+            <button  py-click="get_smthing">Get a new PyJoke</button>
         </div>
 
         <div id="jokes"></div>
+        
+        <button  py-click="get_rally">Get a rally</button>
+        <div id="rally"></div>
+
+        <button  py-click="choose_exe">Get a rally2</button>
+        <div id="rally2">
+            
+        </div>
 
         <script type="py" src="./main.py" config="./src/pyscript.toml"></script>
     </div>
