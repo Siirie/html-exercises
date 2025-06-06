@@ -16,24 +16,18 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
-        <!--pyscripti linkit-->
-         <!-- Recommended meta tags -->
-         <meta charset="UTF-8">
-         <meta name="viewport" content="width=device-width,initial-scale=1.0">
- 
-         <!-- PyScript CSS -->
-         <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
-         <!-- CSS for examples -->
-         <link rel="stylesheet" href="./assets/css/examples.css" />
- 
-         <!-- This script tag bootstraps PyScript -->
-         <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
-         <py-config>
-            {
-                "packages": [],
-                "paths": ["./", "./salat/"] <!-- Ensure PyScript can find your Python file -->
-            }
-        </py-config>
+        <!--pyscripti linkit
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>-->
+         
+
+        <!-- PyScript CSS -->
+        <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+        <!-- CSS for examples -->
+        <link rel="stylesheet" href="./assets/css/examples.css" />
+
+        <!-- This script tag bootstraps PyScript -->
+        <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
             <title>Rally lottery</title>
         <link rel="stylesheet" href="style2.css">
     </head>
@@ -126,15 +120,21 @@
            <div class="content-50">
             <div class="inner_box">
                 <h2>Tähän tulee pythonin arpoma lista</h2>
-                <script type="py">
+                <script type="py" src="./choose_exercise.py" config="./src/pyscript.toml">
                     from pyscript import display
-                    import random
-                    
-                    display("moi")
-                
-                    #display(choose_exercise.choose_exe((4, 1, 2), 10))
-                    
-                </script>
+                    from pyodide.http import pyfetch
+                 
+                    async def choose():
+                        from choose_exercise import choose_exe
+                        response = await pyfetch("salat/rally_kyltit_kopio.txt")
+                        text = await response.string()
+                        rows = text.splitlines()
+                 
+                        result = choose_exe((0, 1), 5, rows)
+                        for r in result:
+                            display(r)
+                 
+                    await choose()
                 </script>
             </div>
            </div>
@@ -164,6 +164,13 @@
             now = datetime.now()
             display(now.strftime("%m/%d/%Y, %H:%M:%S"))
         </script>
+        <div>
+            <button id="get_joke" py-click="get_joke">Get a new PyJoke</button>
+        </div>
+
+        <div id="jokes"></div>
+
+        <script type="py" src="./main.py" config="./src/pyscript.toml"></script>
     </div>
 </body>
 </html>
