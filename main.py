@@ -5,9 +5,6 @@ from pyweb import pydom
 def get_smthing(event):
     pydom["div#jokes"].html = f"{pyjokes.get_joke()} 🥁"
 
-def get_rally(event):
-    pydom["div#rally"].html = "Rally data will be fetched here."
-
 #uusi versio:
 def get_pool(luokat: tuple):
     pool = []
@@ -41,7 +38,7 @@ def get_pool(luokat: tuple):
     return pool
 
 def choose_exe(event): #tulostaa tuloksen (nro, nimi)
-    luokat = (0, 0) #toimii jos tuple!
+    luokat = (1, 2, 3, 0) #toimii jos tuple!
     lkm= 3
     pool= get_pool(luokat)
     all_exes = [
