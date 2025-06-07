@@ -36,7 +36,7 @@ def get_pool(luokat: tuple):
     return pool
 
 def choose_exe(event): #tulostaa tuloksen (nro, nimi)
-    luokat = (4, 0) #toimii jos tuple!
+    luokat = (0, 0) #toimii jos tuple!
     lkm= 5
     pool= get_pool(luokat)
     all_exes = [

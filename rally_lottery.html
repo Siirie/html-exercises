@@ -16,10 +16,6 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
-        <!--pyscripti linkit
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script>-->
-         
 
         <!-- PyScript CSS -->
         <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
@@ -120,22 +116,8 @@
            <div class="content-50">
             <div class="inner_box">
                 <h2>Tähän tulee pythonin arpoma lista</h2>
-                <!--script type="py" src="./choose_exercise.py" config="./src/pyscript.toml">
-                    from pyscript import display
-                    from pyodide.http import pyfetch
-                 
-                    async def choose():
-                        from choose_exercise import choose_exe
-                        response = await pyfetch("salat/rally_kyltit_kopio.txt")
-                        text = await response.string()
-                        rows = text.splitlines()
-                 
-                        result = choose_exe((0, 1), 5, rows)
-                        for r in result:
-                            display(r)
-                 
-                    await choose()
-                </script-->
+                <p id='output'> </p>
+                     
             </div>
            </div>
             

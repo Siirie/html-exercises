@@ -10,7 +10,6 @@ def get_rally(event):
 
 #uusi versio:
 def get_pool(luokat: tuple):
-    #luokat numero vastaa rally_kyltit_kopio.txt tiedoston jokaisen rivin alussa olevia numeroita
     pool = []
     
     try:
@@ -41,10 +40,8 @@ def get_pool(luokat: tuple):
         print("erroria pukkaa")
     return pool
 
-"""
-    """
 def choose_exe(event): #tulostaa tuloksen (nro, nimi)
-    luokat = (4, 0) #toimii jos tuple!
+    luokat = (0, 0) #toimii jos tuple!
     lkm= 3
     pool= get_pool(luokat)
     all_exes = [
@@ -164,20 +161,11 @@ def choose_exe(event): #tulostaa tuloksen (nro, nimi)
     ]
     possibilities =[]
     
-    """
-    #luokat numero vastaa rally_kyltit_kopio.txt tiedoston jokaisen rivin alussa olevia numeroita
-    with open('salat\rally_kyltit_kopio.txt', 'r', encoding='utf-8') as kyltitfile:
-    """
     for row in all_exes:
-        parts= row #parts[0] on järjestysnumero
-        
-        #print(parts[0], parts[1], parts[2], parts[3], parts[4])
-        #seuravaksi pistäisi lisätä rivit, jotka alkavat tietyillä nmeroilla possibilities listaan
+        parts= row 
         if int(parts[0]) in pool:
             possibilities.append(row)
             
-    
-    
     choosen_exes=[]
     
     if len(possibilities) >= lkm:
