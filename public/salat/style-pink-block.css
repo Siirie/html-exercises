@@ -11,6 +11,11 @@ h1 {
     text-align: center;
 }
 
+a {
+    color: #d10a6d;
+    text-decoration: none;
+}
+
 link {
     color: #d10a6d;
     text-decoration: underline;
