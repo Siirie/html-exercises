@@ -117,7 +117,11 @@
             <div class="inner_box">
                 <h2>Tähän tulee pythonin arpoma lista</h2>
                 <p id='output'> </p>
-                     
+                     <py-script>
+                        
+                        result_place=Element('output')
+                        result_place.write(f"{Element('lorem').value}")
+                     </py-script>
             </div>
            </div>
             

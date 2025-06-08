@@ -46,6 +46,10 @@ link {
     color: #bbbaba;
 }
 /*classit*/ 
+.rally2 {
+    font-size: medium;
+    margin-top: 20px;
+}
 .content-50 {
     width: 50%;
     float: left;
